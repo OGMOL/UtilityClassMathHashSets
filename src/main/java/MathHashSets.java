@@ -1,6 +1,10 @@
 import java.util.HashSet;
 
 public class MathHashSets {
+
+    private MathHashSets() {
+    }
+
     public static <T> HashSet<T> union(HashSet<T> first, HashSet<T> second) {
         first.addAll(second);
         return first;
