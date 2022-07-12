@@ -8,15 +8,40 @@ import static org.junit.Assert.assertEquals;
 
 public class MathHashSetsTest {
 
-    @Test
-    public void union() {
-        HashSet<Integer> first = new HashSet<>();
+    private HashSet<Integer> first;
+    private HashSet<Integer> second;
+    private HashSet<String> firstStr;
+    private HashSet<String> secondStr;
+
+    @Before
+    public void setUp() {
+        first = new HashSet<>();
         first.add(1);
         first.add(2);
 
-        HashSet<Integer> second = new HashSet<>();
+        second = new HashSet<>();
         second.add(2);
         second.add(3);
+
+        firstStr = new HashSet<>();
+        firstStr.add("1");
+        firstStr.add("2");
+
+        secondStr = new HashSet<>();
+        secondStr.add("2");
+        secondStr.add("3");
+    }
+
+    @After
+    public void tearDown() {
+        first = null;
+        second = null;
+        firstStr = null;
+        secondStr = null;
+    }
+
+    @Test
+    public void union() {
 
         HashSet<Integer> result = new HashSet<>();
         result.add(1);
@@ -28,13 +53,6 @@ public class MathHashSetsTest {
 
     @Test
     public void intersection() {
-        HashSet<String> firstStr = new HashSet<>();
-        firstStr.add("1");
-        firstStr.add("2");
-
-        HashSet<String> secondStr = new HashSet<>();
-        secondStr.add("2");
-        secondStr.add("3");
 
         HashSet<String> resultStr = new HashSet<>();
         resultStr.add("2");
@@ -44,13 +62,6 @@ public class MathHashSetsTest {
 
     @Test
     public void minus() {
-        HashSet<Integer> first = new HashSet<>();
-        first.add(1);
-        first.add(2);
-
-        HashSet<Integer> second = new HashSet<>();
-        second.add(2);
-        second.add(3);
 
         HashSet<Integer> result = new HashSet<>();
         result.add(1);
@@ -60,13 +71,6 @@ public class MathHashSetsTest {
 
     @Test
     public void difference() {
-        HashSet<String> firstStr = new HashSet<>();
-        firstStr.add("1");
-        firstStr.add("2");
-
-        HashSet<String> secondStr = new HashSet<>();
-        secondStr.add("2");
-        secondStr.add("3");
 
         HashSet<String> resultStr = new HashSet<>();
         resultStr.add("1");
